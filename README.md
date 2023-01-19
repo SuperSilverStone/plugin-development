@@ -2,8 +2,6 @@
 
 This site serves as an archive for all of the code introduced and completed in my YouTube tutorial series, "Plugin Development!"
 
-
-
 ## Episode 1
 In this episode, I go through the basics of setting up 'IntelliJ', and how to setup a Plugin testing server.
  - [IntelliJ](https://www.jetbrains.com/idea/download/)
