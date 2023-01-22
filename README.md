@@ -9,8 +9,8 @@ In this episode, I go through the basics of setting up 'IntelliJ', and how to se
  - [GetBukkit](https://getbukkit.org/download/spigot)
  - [Installation Guide](https://www.spigotmc.org/wiki/spigot-installation/)
  - [{Not Needed} Build Tools](https://www.spigotmc.org/wiki/buildtools/)
-I will NOT be reviewing how to install 'IntelliJ' or the Plugin Testing server, as that is gone over in the video posted.
 
+I will NOT be reviewing how to install 'IntelliJ' or the Plugin Testing server, as that is gone over in the video posted.
 However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode1) for todays episode.
 
 ### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode1)
@@ -34,8 +34,8 @@ This is a crucial step to making your plugins have functionality.
 - [My YouTube Video](http://notpostedyet.com/)
     - [GitHub Code](https://github.com/SuperSilverStone/plugin-development)
 - [Spigot Docs](https://hub.spigotmc.org/javadocs/spigot/)
-- [Event Instructions](https://www.spigotmc.org/wiki/using-the-event-api/)
-I will NOT be reviewing how to install 'IntelliJ' or the Plugin Testing server, as that is gone over in the video posted.
+- [Event Instructions ](https://www.spigotmc.org/wiki/using-the-event-api/)
+    - I will not be showcasing how to use the "Event Instructions." That is a resource.
 
 However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode2) for todays episode.
 
@@ -45,7 +45,8 @@ We will be using the **onEnable()** method today.
 To register an event, we first need to create a new .java class.
 Then, we can use the code below to register a new event.
 
-To do this, replace the *events()* class with your class. (This is the file which you created in the video.)
+To do this, replace the *events()* class with your class. 
+(This is the file which you created in the video).
 ```java
   public void onEnable() {
     Bukkit.getPluginManager().registerEvents(new events(), this);
