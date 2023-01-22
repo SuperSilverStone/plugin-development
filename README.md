@@ -3,6 +3,9 @@
 
 This site serves as an archive for all of the code introduced and completed in my YouTube tutorial series, "Plugin Development!"
 
+## Table Of Contents
+- [Episode 1](https://github.com/SuperSilverStone/plugin-development#episode-1--setting-up-the-basics)
+- [Episode 2](https://github.com/SuperSilverStone/plugin-development#episode-2--event-listeners)
 ## Episode 1 | "Setting Up The Basics!"
 In this episode, I go through the basics of setting up 'IntelliJ', and how to setup a Plugin testing server.
  - [IntelliJ](https://www.jetbrains.com/idea/download/)
@@ -39,7 +42,7 @@ This is a crucial step to making your plugins have functionality.
 
 However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode2) for todays episode.
 
-### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode2)
+### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode2/PluginTutorial.java)
 This is the main class. 
 We will be using the **onEnable()** method today.
 To register an event, we first need to create a new .java class.
