@@ -4,7 +4,7 @@
 This site serves as an archive for all of the code introduced and completed in my YouTube tutorial series, "Plugin Development!"
 
 ## Table Of Contents
-- [Important Info]()
+- [Important Info](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#important-info)
 - [Episode 1](https://github.com/SuperSilverStone/plugin-development#episode-1--setting-up-the-basics)
 - [Episode 2](https://github.com/SuperSilverStone/plugin-development#episode-2--event-listeners)
 - Episode 3 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
@@ -21,7 +21,6 @@ reminders that I have added throughout the code.
 
 // You can remove them by just removing the line, if you want!
 ```
-
 
 ## Episode 1 | "Setting Up The Basics!"
 In this episode, I walk you through how to setup your plugin workspace!
