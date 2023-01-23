@@ -30,7 +30,7 @@ In this episode, I walk you through how to setup your plugin workspace!
 
 However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode1) for todays episode.
 
-### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode1/PluginTutorial.java)
+### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/blob/main/PluginTutorial.java)
 This is the main class. 
 Below are some snippets of the code for todays episode.
 
@@ -79,7 +79,7 @@ This is a crucial step to making your plugins have functionality.
 
 However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode2) for todays episode.
 
-### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode2/PluginTutorial.java)
+### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/blob/main/PluginTutorial.java)
 This is the main class. 
 We will be using the **onEnable()** method today.
 To register an event, we first need to create a new .java class.
@@ -89,6 +89,7 @@ To do this, replace the `new events()` class with your class.
 (This is the file which you created in the video, like `new myClass()`).
 ```java
   public void onEnable() {
+    // Episode 2
     Bukkit.getPluginManager().registerEvents(new events(), this);
   }
 ```
@@ -130,7 +131,7 @@ join and leave messages!
 
 However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode3) for todays episode.
 
-### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode3/PluginTutorial.java)
+### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/blob/main/PluginTutorial.java)
 This is the main class. 
 We will be using the **onEnable()** method today.
 To register an event, we first need to create a new .java class.
@@ -142,6 +143,8 @@ To do this, replace the `events()` class with your class.
     public void onEnable() {
         // If you followed the previous episode, you will have MULTIPLE
         // different lines of code in here!
+
+        // Episode 3
         Bukkit.getPluginManager().registerEvents(new playerListener(), this);
     }
 ```
