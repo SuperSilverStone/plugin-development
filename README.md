@@ -2,7 +2,6 @@
 # Plugin Development Tutorial
 
 This site serves as an archive for all of the code introduced and completed in my YouTube tutorial series, "Plugin Development!"
-
 ## Table Of Contents
 - [Important Info](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#important-info)
 - [Episode 1](https://github.com/SuperSilverStone/plugin-development#episode-1--setting-up-the-basics)
@@ -10,7 +9,7 @@ This site serves as an archive for all of the code introduced and completed in m
 - Episode 3 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
 ## Important Info
 
-You will notice the //*text* at the top of the page. These are *comments*.
+You will notice the `//text` at the top of the page. These are *comments*.
 You can remove the entire line that they are on, and are helpful
 reminders that I have added throughout the code.
 
@@ -21,7 +20,6 @@ reminders that I have added throughout the code.
 
 // You can remove them by just removing the line, if you want!
 ```
-
 ## Episode 1 | "Setting Up The Basics!"
 In this episode, I walk you through how to setup your plugin workspace!
 - [Intellij](https://www.jetbrains.com/idea/download/)
@@ -53,8 +51,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 Finally, below we have our main class. In the class "PluginTutorial", we have two methods.
 The **onEnable()** and the **onDisable()** method. We will be using these a bunch every
-episode, and will add more code to it every time. **onEnable()** is used for the plugin
-startup logic, while **onDisable()** is used for the shutdown logic.
+episode, and will add more code to it every time. `onEnable()` is used for the plugin
+startup logic, while `onDisable()` is used for the shutdown logic.
 ```java
 public final class PluginTutorial extends JavaPlugin {
 
@@ -87,8 +85,8 @@ We will be using the **onEnable()** method today.
 To register an event, we first need to create a new .java class.
 Then, we can use the code below to register a new event.
 
-To do this, replace the *events()* class with your class. 
-(This is the file which you created in the video).
+To do this, replace the `new events()` class with your class. 
+(This is the file which you created in the video, like `new myClass()`).
 ```java
   public void onEnable() {
     Bukkit.getPluginManager().registerEvents(new events(), this);
@@ -102,7 +100,7 @@ Our listener is how we will listen for things that happen in the game.
 
 Below is an example of one of the events that we go over in the YouTube video.
 *OnBlockBreak* is the name that we give the event.
-To get information when a block is broken, we use the event named *BlockBreakEvent*, in which
+To get information when a block is broken, we use the event named `BlockBreakEvent`, in which
 we will get it from using the name, *event*.
 
 If the player associated with the event (BlockBreakEvent) is not null (!=), then we
@@ -138,7 +136,7 @@ We will be using the **onEnable()** method today.
 To register an event, we first need to create a new .java class.
 Then, we can use the code below to register a new event.
 
-To do this, replace the *events()* class with your class. 
+To do this, replace the `events()` class with your class. 
 (This is the file which you created in the video).
 ```java
     public void onEnable() {
@@ -153,12 +151,12 @@ To do this, replace the *events()* class with your class.
 This is a class in which we will create our *listener*.
 
 Below is an example of one of the events that we go over in the YouTube video.
-*OnPlayerJoin* is the name of our listener, and *PlayerJoinEvent* is the name of our event.
+*OnPlayerJoin* is the name of our listener, and `PlayerJoinEvent` is the name of our event.
 To get data from it, we can call it *event*!
 
 If the player associated with the event (PlayerJoinEvent) is not null (!=), then we
 will assign the player to a variable, *player*, and then set the join message of 
-the player to whatever we would like. In the example below, we are using **ChatColor** 
+the player to whatever we would like. In the example below, we are using `ChatColor` 
 to select the color of our chat. You do **NOT** have to use it for your code to work.
 ```java
     @EventHandler
