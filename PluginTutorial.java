@@ -2,6 +2,7 @@ package me.supersilverstone.plugintutorial;
 
 import me.supersilverstone.plugintutorial.episode2.events;
 import me.supersilverstone.plugintutorial.episode3.playerListener;
+import me.supersilverstone.plugintutorial.episode4.feed;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,6 +20,9 @@ public final class PluginTutorial extends JavaPlugin {
 
         // Episode 3
         Bukkit.getPluginManager().registerEvents(new playerListener(), this);
+
+        // Episode 4
+        getCommand("feed").setExecutor(new feed());
     }
 
     @Override
