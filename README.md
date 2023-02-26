@@ -6,7 +6,8 @@ This site serves as an archive for all of the code introduced and completed in m
 - [Important Info](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#important-info)
 - [Episode 1](https://github.com/SuperSilverStone/plugin-development#episode-1--setting-up-the-basics)
 - [Episode 2](https://github.com/SuperSilverStone/plugin-development#episode-2--event-listeners)
-- Episode 3 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
+- [Episode 3](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-3--join-message-plugin)
+- Episode 4 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
 ## Important Info
 
 You will notice the `//text` at the top of the page. These are *comments*.
