@@ -1,0 +1,8 @@
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+commands:
+  message:
+    description: Send a word to a player!
+    usage: /<command> <word> <player>
