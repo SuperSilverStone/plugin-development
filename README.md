@@ -286,3 +286,124 @@ commands:
 It is incredibly important that you refer back to the plugin.yml, as this is where all of your crucial loading information is located!
 
 *Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+## Episode 5 | "Message Command!"
+In this episode, we walk through how to create our own word sender plugin, which uses player arguments!
+- [My YouTube Video](http://notpostedyet.com/)
+    - [GitHub Code](https://github.com/SuperSilverStone/plugin-development)
+- [Spigot Docs](https://hub.spigotmc.org/javadocs/spigot/)
+- [Command Instructions ](https://www.spigotmc.org/wiki/create-a-simple-command/)
+    - I will not be showcasing how to use the "Command Instructions." That is a resource.
+
+However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode5) for todays episode.
+
+### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/blob/main/PluginTutorial.java)
+This is the main class. 
+We will be using the **onEnable()** method today.
+To add a command, we have to do something different then what we did for the Event Listeners. This is very similar to what we did last time, in Episode 4.
+
+We are going to add our **Executor**. I went over this last episode, so I won't much here.
+
+```java
+    public void onEnable() {
+        // If you followed the previous episode, you will have MULTIPLE
+        // different lines of code in here!
+
+        // Episode 5
+        getCommand("message").setExecutor(new message());
+    }
+```
+*Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+
+### [message.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode5/message.java)
+This is a class in which we will create our *Command Executor* for our /message command.
+
+At the begining of our code, we have our package and our set of imports. For our public class, we will be implementing **CommandExecutor** instead of **Listener**.
+
+```java
+package me.supersilverstone.plugintutorial.episode5;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+
+public class message implements CommandExecutor {
+
+}
+```
+Next, we have the bulk of our code. I won't be going through and explaining all of it here, as you can see it all in the YouTube video. The most important part, however, is the understanding of how the arguments are gotten.
+
+To get an argument, we use `args[]`. In the onCommand, at the very end of the line, we see `String[] args`. This tells us that args[] will be a list of string values. To gain the information from these, we assign each section with a number. `args[0]` or `args[100]` are all valid, but in this case, `args[0]` will be our word, and `args[1]` will be the player.
+
+```java
+public class message implements CommandExecutor {
+    @Override
+    @Deprecated
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (command.getName().equalsIgnoreCase("message")) {
+            if (sender instanceof Player) {
+                if (!args[0].isEmpty() && !args[1].isEmpty()) {
+                    String word = args[0];
+                    String receiver = args[1];
+                    for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
+                        if (onlinePlayers.getDisplayName().equals(receiver)) {
+                            Player receiverPlayer = Bukkit.getServer().getPlayer(receiver);
+                            receiverPlayer.sendMessage(ChatColor.GREEN + word);
+                        } else {
+                            sender.sendMessage(ChatColor.RED + receiver + " does not exist.");
+                            sender.sendMessage(ChatColor.RED + "Please try /message <word> <player>.");
+                        }
+                    }
+                } else {
+                    sender.sendMessage(ChatColor.RED + "Unknown arguments.");
+                    sender.sendMessage(ChatColor.RED + "Please try /message <word> <player>.");
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+*Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+
+### [plugin.yml](https://github.com/SuperSilverStone/plugin-development/blob/main/episode5/plugin.yml)
+This is the **plugin.yml**. We explained how to use it last time, and we will be doing something very similar with it.
+
+Below, we have the basic `plugin.yml`. This is automatically created with your plugin, but now we have to add to it. (Yours will look different from mine, depending on the name, version, etc). 
+```yml
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+```
+Now, we have to add some more lines to it. First, add a `command:` line. Then, go down a line and name your command. In this case, mine is named *feed*. Add a description ona  line below that, and then a usage, explaining how to use the command.
+```yml
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+commands:
+  message:
+    description: Send a message to a player!
+    usage: /<command> <word> <player>
+```
+**HOWEVER**, if you already created something in your plugin.yml, you don't have to get rid of it!
+```yml
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+commands:
+  feed:
+    description: Feed yourself all of the way!
+    usage: /<command>
+  message:
+    description: Send a message to a player!
+    usage: /<command> <word> <player>
+```
+Easy, right!?
+
+*Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
