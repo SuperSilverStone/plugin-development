@@ -1,0 +1,7 @@
+# This is the default *plugin.yml*. Do NOT touch this file, at this point,
+# You will mess around with it in later projects.
+
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
