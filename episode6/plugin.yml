@@ -1,0 +1,10 @@
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+commands:
+  coinflip:
+    description: Flips a virtual coin
+    usage: /<command>
+    aliases:
+      - flip
