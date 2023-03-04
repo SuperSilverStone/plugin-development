@@ -7,7 +7,9 @@ This site serves as an archive for all of the code introduced and completed in m
 - [Episode 1](https://github.com/SuperSilverStone/plugin-development#episode-1--setting-up-the-basics)
 - [Episode 2](https://github.com/SuperSilverStone/plugin-development#episode-2--event-listeners)
 - [Episode 3](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-3--join-message-plugin)
-- Episode 4 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
+- [Episode 4]()
+- Episode 5 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
+- Episode 6 has **NOT** officially released yet! (*However, you can see the code here, ahead of time!*)
 ## Important Info
 
 You will notice the `//text` at the top of the page. These are *comments*.
@@ -405,5 +407,138 @@ commands:
     usage: /<command> <word> <player>
 ```
 Easy, right!?
+
+*Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+
+## Episode 6 | "Coin Flip Command!"
+In this episode, we walk through how to create a Coin Flip command! You will get either heads, or tails!
+- [My YouTube Video](http://notpostedyet.com/)
+    - [GitHub Code](https://github.com/SuperSilverStone/plugin-development)
+- [Spigot Docs](https://hub.spigotmc.org/javadocs/spigot/)
+
+However, the code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode6) for todays episode.
+
+### [PluginTutorial.java](https://github.com/SuperSilverStone/plugin-development/blob/main/PluginTutorial.java)
+This is the main class. 
+We will be using the **onEnable()** method today.
+To add a command, we will follow what we did last time. It should start to look similar.
+
+We are going to add our **Executor**.
+
+```java
+    public void onEnable() {
+        // If you followed the previous episode, you will have MULTIPLE
+        // different lines of code in here!
+
+        // Episode 6
+        getCommand("coinflip").setExecutor(new coinflip());
+    }
+```
+*Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+
+### [coinflip.java](https://github.com/SuperSilverStone/plugin-development/tree/main/episode5/coinflip.java)
+This is a class in which we will create our *Command Executor* for our /coinflip command.
+
+At the begining of our code, we have our package and our set of imports. For our public class, we will be implementing **CommandExecutor** instead of **Listener**.
+
+```java
+package me.supersilverstone.plugintutorial.episode6;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Random;
+
+public class coinflip implements CommandExecutor {
+
+}
+```
+Next, we have the bulk of our code. I won't be going through and explaining all of it here, as you can see it all in the YouTube video.
+
+However, we do need to discuss the bottom portion, and the new method we created.
+First, we have our onCommand() method. Below that though, we have our getRandomInt() method. When we run our command (through the onCommand() method), we also run the getRandomInt() method. We set the variable ran to a new Random() method, inwhich we can look on the inside of it and run the nextInt() method.
+
+If that doesn't make sense, its alright, but watch the YouTueb video to better understand it.
+
+```java
+public class coinflip implements CommandExecutor {
+    @Override
+    // onCommand() Method
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            int random = getRandomInt(2);
+            System.out.println(random);
+            String output = null;
+
+            if (random == 0) {
+                output = "Heads!";
+            } else if (random == 1) {
+                output = "Tails!";
+            }
+
+            player.sendMessage(ChatColor.GREEN + "You Rolled " + output);
+        }
+        return true;
+    }
+
+    // getRandomInt() Method
+    public static Integer getRandomInt(Integer max) {
+        Random ran = new Random();
+        return ran.nextInt(max);
+    }
+}
+
+```
+*Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+
+### [plugin.yml](https://github.com/SuperSilverStone/plugin-development/blob/main/episode6/plugin.yml)
+This is the **plugin.yml**. We explained how to use it last time, and we will be doing something very similar with it.
+
+Below, we have the basic `plugin.yml`. This is automatically created with your plugin, but now we have to add to it. (Yours will look different from mine, depending on the name, version, etc). 
+```yml
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+```
+Now, we have to add some more lines to it. First, add a `command:` line. Then, go down a line and name your command. In this case, mine is named *coinflip*. Add a description ona  line below that, and then a usage, explaining how to use the command. I also added an alias so you can use /flip aswell.
+```yml
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+commands:
+  coinflip:
+    description: Flips a virtual coin
+    usage: /<command>
+    aliases:
+      - flip
+```
+**HOWEVER**, if you already created something in your plugin.yml, you don't have to get rid of it!
+```yml
+name: PluginTutorial
+version: '${project.version}'
+main: me.supersilverstone.plugintutorial.PluginTutorial
+api-version: 1.19
+commands:
+  feed:
+    description: Feeds the command sender
+    usage: /<command>
+  message:
+    description: Sends a word to a player
+    usage: /<command> <word> <player>
+  coinflip:
+    description: Flips a virtual coin
+    usage: /<command>
+    aliases:
+      - flip
+```
+Easy peasy, lemmon squeezy!
 
 *Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
