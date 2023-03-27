@@ -8,7 +8,7 @@ This site serves as an archive for all of the code introduced and completed in m
 - [Episode 2](https://github.com/SuperSilverStone/plugin-development#episode-2--event-listeners)
 - [Episode 3](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-3--join-message-plugin)
 - [Episode 4](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-4--feed-command)
-- [Episode 5](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-5--message-command) | Episode 5 has **NOT** officialy been released, however, you can view the code early!
+- [Episode 5](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-5--message-command)
 - [Episode 6](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-6--coin-flip-command) | Episode 6 has **NOT** officialy been released, however, you can view the code early!
 ## Important Info
 
