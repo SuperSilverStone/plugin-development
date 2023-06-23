@@ -10,6 +10,7 @@ This site serves as an archive for all of the code introduced and completed in m
 - [Episode 4](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-4--feed-command)
 - [Episode 5](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-5--message-command)
 - [Episode 6](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-6--coin-flip-command)
+- [Episode 7](https://github.com/SuperSilverStone/plugin-development#episode-7--configuration-files) | Episode 7 is **NOT** officially released, however, you can take a peak!
 ## Important Info
 
 You will notice the `//text` at the top of the page. These are *comments*.
