@@ -9,7 +9,7 @@ This site serves as an archive for all of the code introduced and completed in m
 - [Episode 3](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-3--join-message-plugin)
 - [Episode 4](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-4--feed-command)
 - [Episode 5](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-5--message-command)
-- [Episode 6](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-6--coin-flip-command) | Episode 6 has **NOT** officialy been released, however, you can view the code early!
+- [Episode 6](https://github.com/SuperSilverStone/plugin-development/blob/main/README.md#episode-6--coin-flip-command)
 ## Important Info
 
 You will notice the `//text` at the top of the page. These are *comments*.
@@ -23,6 +23,8 @@ reminders that I have added throughout the code.
 
 // You can remove them by just removing the line, if you want!
 ```
+
+In addition, episodes 1-6 will all be sharing **ONE** main class. Any further, and the entire plugin will be exported into their files.
 ## Episode 1 | "Setting Up The Basics!"
 In this episode, I walk you through how to setup your plugin workspace!
 - [Intellij](https://www.jetbrains.com/idea/download/)
@@ -409,7 +411,6 @@ commands:
 Easy, right!?
 
 *Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
-
 ## Episode 6 | "Coin Flip Command!"
 In this episode, we walk through how to create a Coin Flip command! You will get either heads, or tails!
 - [My YouTube Video](http://notpostedyet.com/)
@@ -542,3 +543,133 @@ commands:
 Easy peasy, lemmon squeezy!
 
 *Remember to click the title of the class to see the complete code as this is **NOT** the complete code.*
+## Episode 7 | "Configuration Files"
+
+In this episode, we walk through how to create a Configuration File! You can give and take information from this special file!
+- [My YouTube Video](http://notpostedyet.com/)
+    - [GitHub Code](https://github.com/SuperSilverStone/plugin-development)
+- [Spigot Docs](https://hub.spigotmc.org/javadocs/spigot/)
+
+However, the full code is linked [here](https://github.com/SuperSilverStone/plugin-development/tree/main/episode7) for todays episode.
+
+---
+
+**Step 1 | Setup the Basics**
+
+Open your plugin's main class or create a dedicated configuration class.
+
+Import the necessary classes:
+
+```java
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+```
+
+Declare a FileConfiguration variable to hold the configuration data:
+
+```java
+private FileConfiguration config;
+```
+
+Now, we are going to create a new method called the **loadConfig()** method. 
+We will be running this method in our **OnEnable()** method.
+```java
+private void loadConfig() {
+    // Create the plugin's data folder if it doesn't exist
+    if (!getDataFolder().exists()) {
+        getDataFolder().mkdirs();
+    }
+
+    // Specify the file path and name
+    File configFile = new File(getDataFolder(), "config.yml");
+
+    // Check if the config file exists; if not, create a new one
+    if (!configFile.exists()) {
+        // Save the default config file from the plugin's resources
+        // to the plugin's data folder
+        saveResource("config.yml", false);
+    }
+
+    // Load the config
+    config = YamlConfiguration.loadConfiguration(configFile);
+}
+```
+
+Explanation:
+
+In this step, we set up the configuration file and load its contents.
+We first check if the plugin's data folder exists and create it if it doesn't.
+Then, we specify the file path and name for the configuration file (in this example, it's "config.yml").
+
+We check if the config file already exists; if not,
+we save the default config file from the plugin's resources to the data folder using saveResource().
+Finally, we load the configuration file using YamlConfiguration.loadConfiguration().
+Step 2: Accessing Configuration Values:
+
+
+---
+
+**Step 2 | Retrieve A Value**
+
+To retrieve a value from the configuration file, you can use the get method with the appropriate data type:
+```java
+String message = config.getString("message");
+int count = config.getInt("count");
+boolean enabled = config.getBoolean("enabled");
+```
+
+You can also provide default values in case the configuration value is not found:
+```java
+String message = config.getString("message", "Hello, world!");
+int count = config.getInt("count", 5);
+boolean enabled = config.getBoolean("enabled", true);
+```
+
+Explanation:
+
+In this step, we demonstrate how to access values from the configuration file.
+We use the get method of the FileConfiguration object, providing the key for the value we want to retrieve.
+The get method returns the value of the specified key with the appropriate data type.
+If the key is not found in the configuration file, we can provide a default value that will be used instead.
+
+---
+
+**Step 3 | Modifying Configuration Values**
+
+To modify a value in the configuration file, you can use the set method:
+```java
+config.set("message", "Welcome to the server!");
+config.set("count", 10);
+config.set("enabled", false);
+```
+
+Explanation:
+
+In this step, we show how to modify values in the configuration file.
+We use the set method of the FileConfiguration object, providing the key and the new value to be set.
+
+---
+
+**Step 4 | Saving the Config**
+
+After making changes, remember to save the configuration file:
+```java
+private void saveConfig() {
+    try {
+        config.save(new File(getDataFolder(), "config.yml"));
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+Explanation:
+
+After making changes to the configuration file, 
+it's essential to save it using the save method. We specify the file path and name for the saved configuration file.
+
+---
+
+**Step 4 | What does it even do?**
+
+The main draw for a config.yml is that you do **NOT** need to edit the code of the plugin to make changes. You can do it right through the configuration file. This could be changing settings or changing messages, or so much more! We will work on more next episode.
